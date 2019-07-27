@@ -73,7 +73,7 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     // Get the current location
     axios.get('https://ipapi.co/json')
         .then((responseCity) => {
-            dispatch(postsFetchLocation(responseCity.data.country));
+            dispatch(postsFetchLocation(responseCity.data.country_name));
             return axios.get(postsApiUrl + responseCity.data.country)
                 .then((response) => {
                     // Get only 10 first posts, due to task requirements
