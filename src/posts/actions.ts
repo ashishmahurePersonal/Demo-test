@@ -71,7 +71,7 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     // API request will be executed...
     dispatch(postsFetchBegin());
     // Get the current location
-    axios.get('http://ip-api.com/json')
+    axios.get('https://ip-api.com/json')
         .then((responseCity) => {
             dispatch(postsFetchLocation(responseCity.data.country));
             return axios.get(postsApiUrl + responseCity.data.country)
