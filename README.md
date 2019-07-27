@@ -19,4 +19,6 @@ Additional tasks (will count as an extra advantage vs
 other candidates)
 1. Display the number of stars for each user next to their username
 2. Implement server-side rendering
-# Demo-test
+# Run:
+npm i
+npm install
