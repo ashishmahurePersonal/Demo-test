@@ -73,8 +73,9 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     // Get the current location
     axios.get('https://ipapi.co/json')
         .then((responseCity) => {
+            console.log(responseCity.data.country_name)
             dispatch(postsFetchLocation(responseCity.data.country_name));
-            return axios.get(postsApiUrl + responseCity.data.country)
+            return axios.get(postsApiUrl + responseCity.data.country_name)
                 .then((response) => {
                     // Get only 10 first posts, due to task requirements
                     // Array should be sliced ASAP, because we don't need large amount of data in an action
