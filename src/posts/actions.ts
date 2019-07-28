@@ -73,7 +73,7 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     // Get the current location
     axios.get('https://ipapi.co/json')
         .then((responseCity) => {
-            console.log(responseCity.data.country_name)
+            console.log(responseCity.data.country_name);
             dispatch(postsFetchLocation(responseCity.data.country_name));
             return axios.get(postsApiUrl + responseCity.data.country_name)
                 .then((response) => {
