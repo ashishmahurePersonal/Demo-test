@@ -8,13 +8,12 @@ interface Props {
 }
 
 export const PostItem: React.SFC<Props> = props => {
-    console.log();
     let title: any | JSX.Element = props.post.owner.login,
         imgPath: any | JSX.Element = props.post.owner.avatar_url,
         urlProfile: any | JSX.Element = props.post.owner.html_url,
         description: string | JSX.Element = props.post.description.substring(0, 200),
         starcount: any | JSX.Element = props.post.stargazers_count,
-        location: any | JSX.Element = props.location,
+        location: any | JSX.Element = localStorage.getItem('CityName') || props.location,
         fullName: any | JSX.Element = props.post.full_name;
 
     return (

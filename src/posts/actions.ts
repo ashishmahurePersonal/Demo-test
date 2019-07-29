@@ -74,6 +74,9 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     axios.get('https://ipapi.co/json')
         .then((responseCity) => {
             dispatch(postsFetchLocation(responseCity.data.city));
+            if (responseCity.data.city === 'Bengaluru') {
+                responseCity.data.city = 'Bangalore';
+            }
             if (localStorage) {
                 localStorage.setItem('CityName', responseCity.data.city);
             }
