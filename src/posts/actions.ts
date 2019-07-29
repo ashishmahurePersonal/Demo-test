@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { postsApiUrl } from './constants';
-import { Action, Dispatch } from 'redux';
+import {postsApiUrl} from './constants';
+import {Action, Dispatch} from 'redux';
 
 export const POSTS_FETCH_BEGIN = 'POSTS_FETCH_BEGIN';
 export const POSTS_FETCH_SUCCESS = 'POSTS_FETCH_SUCCESS';
@@ -74,9 +74,8 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     axios.get('https://ipapi.co/json')
         .then((responseCity) => {
             dispatch(postsFetchLocation(responseCity.data.city));
-            if(localStorage){
-                console.log(localStorage);
-                localStorage.setItem("CityName", responseCity.data.city);
+            if (localStorage) {
+                localStorage.setItem('CityName', responseCity.data.city);
             }
             return axios.get(postsApiUrl + responseCity.data.city)
                 .then((response) => {
