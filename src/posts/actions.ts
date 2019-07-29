@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {postsApiUrl} from './constants';
-import {Action, Dispatch} from 'redux';
+import { postsApiUrl } from './constants';
+import { Action, Dispatch } from 'redux';
 
 export const POSTS_FETCH_BEGIN = 'POSTS_FETCH_BEGIN';
 export const POSTS_FETCH_SUCCESS = 'POSTS_FETCH_SUCCESS';
