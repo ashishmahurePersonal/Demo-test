@@ -74,7 +74,10 @@ export const postsFetch = () => (dispatch: Dispatch<PostsAction>) => {
     axios.get('https://ipapi.co/json')
         .then((responseCity) => {
             dispatch(postsFetchLocation(responseCity.data.city));
-            localStorage.setItem("CityName", "responseCity.data.city");
+        if(localStorage){
+           console.log(localStorage)
+            localStorage.setItem("CityName", responseCity.data.city);
+        }
             return axios.get(postsApiUrl + responseCity.data.city)
                 .then((response) => {
                     // Get only 10 first posts, due to task requirements
